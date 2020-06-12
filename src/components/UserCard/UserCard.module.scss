@@ -1,0 +1,12 @@
+.card {
+  background: white;
+  min-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 20px;
+
+  .avatar {
+    height: 80px;
+    width: 80px;
+  }
+}
