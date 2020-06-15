@@ -1,12 +1,56 @@
 .card {
+  position: relative;
   background: white;
   min-width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
   padding: 20px;
 
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    height: 1px;
+    background: #e1e4ea;
+    width: calc(100% - 60px);
+  }
+
   .avatar {
     height: 80px;
     width: 80px;
+  }
+
+  .link {
+    text-decoration: none;
+    transition: 300ms;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .button {
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 34px;
+    color: #000000;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 13px 24px;
+    text-decoration: none;
+    transition: 300ms;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }

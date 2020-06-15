@@ -3,7 +3,7 @@ import { Pagination } from "@material-ui/lab";
 import { CircularProgress, Grid } from "@material-ui/core";
 
 import UserCard from "../../components/UserCard/UserCard";
-//import styles from "./UsersList.module.scss";
+import styles from "./UsersList.module.scss";
 
 export default function UsersList() {
   const [error, setError] = useState(null);
@@ -12,7 +12,9 @@ export default function UsersList() {
   const [pagination, setPagination] = useState(1);
 
   useEffect(() => {
-    fetch(`https://api.github.com/users?since=${pagination}00`)
+    fetch(`https://api.github.com/users?since=${pagination}00`, {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then(
         (result) => {
@@ -20,6 +22,7 @@ export default function UsersList() {
           setItems(result);
         },
         (error) => {
+          console.log(error);
           setIsLoaded(true);
           setError(error);
         }
@@ -49,11 +52,11 @@ export default function UsersList() {
         </Grid>
 
         <Pagination
-          variant="outlined"
           size="large"
           count={4}
           page={pagination}
           onChange={handleChange}
+          className={styles.pagination}
         />
       </>
     );
