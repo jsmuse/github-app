@@ -2,14 +2,8 @@
   text-align: center;
   background-color: #e5e5e5;
   height: 100%;
-}
-
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: red;
+  min-height: 100vh;
+  margin: 0 auto;
 }
 
 html,
@@ -20,9 +14,4 @@ body {
 body {
   margin: 0;
   padding: 0;
-}
-
-// hack for the layout, root should be 100% height
-#root {
-  height: 100%;
 }

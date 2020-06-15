@@ -10,13 +10,15 @@ import styles from "./App.module.scss";
 export default function App() {
   return (
     <div className={styles.app}>
-      <Grid container justify="center" alignItems="center">
+      <Grid item container justify="center">
         <Router>
           <Switch>
             <Route exact path="/">
               <UsersList />
             </Route>
-            <Route path="/:user" children={<UserProfile />} />
+            <Route path="/:user">
+              <UserProfile />
+            </Route>
           </Switch>
         </Router>
       </Grid>

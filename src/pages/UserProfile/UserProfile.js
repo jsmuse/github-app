@@ -33,23 +33,21 @@ export default function UserProfile(props) {
     return <CircularProgress disableShrink />;
   } else {
     return (
-      <div className={styles.card}>
-        <Grid container spacing={4}>
-          <Grid container item xs={2} justify="flex-end" alignItems="center">
-            <Avatar
-              className={styles.avatar}
-              alt={userInfo}
-              src={userInfo.avatar_url}
-            />
-          </Grid>
-          <Grid container item xs={8} alignItems="center">
-            <Typography>{userInfo.name}</Typography>
-            <Typography>{userInfo.company}</Typography>
-            <Typography>{userInfo.location}</Typography>
-            <Typography>{userInfo.created_at}</Typography>
-          </Grid>
+      <Grid container item xs={10} className={styles.card}>
+        <Grid container item xs={2} justify="flex-end" alignItems="center">
+          <Avatar
+            className={styles.avatar}
+            alt={userInfo}
+            src={userInfo.avatar_url}
+          />
         </Grid>
-      </div>
+        <Grid container item xs={8} alignItems="center">
+          <Typography>{userInfo.name}</Typography>
+          <Typography>{userInfo.company}</Typography>
+          <Typography>{userInfo.location}</Typography>
+          <Typography>{userInfo.created_at}</Typography>
+        </Grid>
+      </Grid>
     );
   }
 }
