@@ -18,7 +18,7 @@ export default function UserCard(props) {
           </Link>
         </Grid>
         <Grid container item xs={8} alignItems="center">
-          <Link to="user">
+          <Link to={props.name}>
             <Typography>{props.name}</Typography>
           </Link>
         </Grid>

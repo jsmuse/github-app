@@ -3,6 +3,8 @@ import { Grid } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import UsersList from "./pages/UsersList/UsersList";
+import UserProfile from "./pages/UserProfile/UserProfile";
+
 import styles from "./App.module.scss";
 
 export default function App() {
@@ -14,9 +16,7 @@ export default function App() {
             <Route exact path="/">
               <UsersList />
             </Route>
-            <Route path="/user">
-              <div>Hey</div>
-            </Route>
+            <Route path="/:user" children={<UserProfile />} />
           </Switch>
         </Router>
       </Grid>
