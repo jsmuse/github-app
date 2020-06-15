@@ -23,9 +23,9 @@ export default function UserCard(props) {
           </Link>
         </Grid>
         <Grid container item xs={2} alignItems="center">
-          <Button variant="contained" color="primary" href={props.link}>
+          <a href={props.link} target="_blank">
             Кнопка
-          </Button>
+          </a>
         </Grid>
       </Grid>
     </div>
