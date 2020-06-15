@@ -9,7 +9,7 @@ export default function UserCard(props) {
     <div className={styles.card}>
       <Grid container spacing={4}>
         <Grid container item xs={2} justify="flex-end" alignItems="center">
-          <Link to="user">
+          <Link to={props.name}>
             <Avatar
               className={styles.avatar}
               alt={props.name}
