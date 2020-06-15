@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Avatar, Grid, CircularProgress, Typography } from "@material-ui/core";
+import { Avatar, Grid, CircularProgress } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 
 import styles from "./UserProfile.module.scss";
 
-export default function UserProfile(props) {
+export default function UserProfile() {
   const { user } = useParams();
 
   const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ export default function UserProfile(props) {
   const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${user}`)
+    fetch(`https://api.github.com/users/${user}`, { method: "GET" })
       .then((res) => res.json())
       .then(
         (result) => {
@@ -26,7 +26,6 @@ export default function UserProfile(props) {
       );
   }, [user]);
 
-  console.log("!", user, userInfo);
   if (error) {
     return <div>Ошибка: {error.message}</div>;
   } else if (!isLoaded) {
@@ -34,18 +33,21 @@ export default function UserProfile(props) {
   } else {
     return (
       <Grid container item xs={10} className={styles.card}>
-        <Grid container item xs={2} justify="flex-end" alignItems="center">
-          <Avatar
-            className={styles.avatar}
-            alt={userInfo}
-            src={userInfo.avatar_url}
-          />
-        </Grid>
-        <Grid container item xs={8} alignItems="center">
-          <Typography>{userInfo.name}</Typography>
-          <Typography>{userInfo.company}</Typography>
-          <Typography>{userInfo.location}</Typography>
-          <Typography>{userInfo.created_at}</Typography>
+        <Avatar
+          className={styles.avatar}
+          alt={userInfo.name}
+          src={userInfo.avatar_url}
+        />
+        <Grid container item xs direction="column" alignItems="flex-start">
+          <p className={styles.name}>{userInfo.name}</p>
+          <p className={styles.about}>
+            {userInfo.company} {userInfo.location}
+          </p>
+          <p className={styles.date}>
+            From{" "}
+            {userInfo &&
+              new Date(userInfo.created_at).toLocaleDateString("en-US")}
+          </p>
         </Grid>
       </Grid>
     );

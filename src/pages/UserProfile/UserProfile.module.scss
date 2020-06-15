@@ -2,10 +2,36 @@
   background: white;
   box-sizing: border-box;
   overflow-x: hidden;
-  padding: 20px;
+  padding: 24px 48px;
+  border-radius: 10px;
+  align-items: center;
 
   .avatar {
     width: 120px;
     height: 120px;
+    margin-right: 40px;
+  }
+
+  .name {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 39px;
+    margin: 0;
+  }
+
+  .about {
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 17px 0 17px;
+  }
+
+  .date {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    opacity: 0.4;
+    margin: 0;
   }
 }
